@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
+import css from './Todo.module.scss'
 
-function Todo (props) {
+function Todo(props) {
 
     const { getData, deleteRow, editRow, todoData: { isAjax, isEmpty, data } } = props
 
@@ -17,12 +18,26 @@ function Todo (props) {
     }
 
     return (
-        <div>
-            <div>
-                <h1>Список задач</h1>
-                <button>Добавить</button>
-            </div>
-            {/* <div className={css.table}>
+        <div className={css.wraper}>
+            <div className={css.pageindex}>
+                <div className={css.header}>
+                    <div className={css.h_title}>
+                        <h1>Список задач</h1>
+                    </div>
+                    <div className={css.h_adding}>
+                        <button className = {css.btn_icon}>
+                            <span>Добавить</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div className={css.main}>
+
+                </div>
+                <div className={css.footer}>
+
+                </div>
+                {/* <div className={css.table}>
                 {
                     data.map((item, key) => {
                         return <Row
@@ -39,7 +54,8 @@ function Todo (props) {
                     })
                 }
             </div> */}
-            
+
+            </div>
         </div>
     )
 }
