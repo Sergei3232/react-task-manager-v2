@@ -19,12 +19,12 @@ function Row (props) {
       <div className = {css.action}>
         <ul className = {css.actionUl}>
             <li className = {css.liEdit}>
-                <a>
+                <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}>
                     <i></i>
                 </a>
             </li>
             <li className = {css.liDel}>
-                <a>
+                <a onClick = {()=>{deleteRow({id})}}>
                     <i></i>
                 </a>
             </li>

@@ -8,6 +8,8 @@
     -webkit-justify-content: space-between;
     justify-content: space-between;    
 
+    
+    
     .id{
         padding: 10px 15px;
         border-top: 1px solid #f2f2f2;
@@ -53,7 +55,10 @@
                     color: #fff!important;
                 }
                 
-                a{
+                a{  
+                    display: block; 
+                    text-align: center;
+                    height: 100%;
                     padding: 0px 10px;
                     i{
                         &:before{
@@ -75,10 +80,20 @@
                 &:hover{
                     background-color: #e61e1e;
                 }
+
+                a{
+                    display: block; 
+                    text-align: center; 
+                    height: 100%; 
+                    
+                    i{
+                        text-align: center;
+                    }
+                }
             }
         }
     }
-
+    
     // :after{
 
     // }

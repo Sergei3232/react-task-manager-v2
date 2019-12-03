@@ -38,10 +38,8 @@ function Todo(props) {
                         return <Row
                             {...item}
                             className={css.item}
-                            deleteRow={(id) => {
-                                
-                                deleteRow(id)
-                            }}
+                            deleteRow={(id) => {deleteRow(id)}}
+                            
                             editRow={(id) => {
                                 editRow({ id, text: "Редактирование" })
                             }}
