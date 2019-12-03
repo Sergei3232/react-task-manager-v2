@@ -4,6 +4,7 @@ import { actionCreators } from '../../actions/todo.action'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import css from './Todo.module.scss'
+import Row from '../../components/Row/Row'
 
 function Todo(props) {
 
@@ -32,10 +33,24 @@ function Todo(props) {
 
                 </div>
                 <div className={css.main}>
-
+                {
+                    data.map((item, key) => {
+                        return <Row
+                            {...item}
+                            className={css.item}
+                            deleteRow={(id) => {
+                                
+                                deleteRow(id)
+                            }}
+                            editRow={(id) => {
+                                editRow({ id, text: "Редактирование" })
+                            }}
+                            key={key} />
+                    })
+                }  
                 </div>
                 <div className={css.footer}>
-
+                    <p>© 2019 АО "Мегаполис"</p>
                 </div>
                 {/* <div className={css.table}>
                 {
