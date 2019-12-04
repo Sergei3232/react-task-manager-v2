@@ -63,8 +63,11 @@
             // min-height: calc((100vh-22px));
             // height: 88vh; 
             padding: 15px 0px; 
-
+                // :nth-last-child(-n+1){
+                //     border-bottom: 1px solid #f2f2f2;
+                // }
         }
+
         .footer{
             width: 962px;
             height: 22px;

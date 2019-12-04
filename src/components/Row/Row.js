@@ -1,52 +1,27 @@
 import React from 'react'
-import css from './Row.module.scss'
+import './Row.scss'
 import PropTypes from 'prop-types'
-import cn from 'classnames'
 
 function Row (props) {
-  const { deleteRow, editRow, id, title, className } = props
+  const { deleteRow, editRow, id, title} = props
   return (
-    <div className={cn(css.tableRow, className)}>
+    <div className="table-row">
       
-      <div className = {css.id}>
-        {id}  
-      </div>
+      <div className = "table-row__table-coll table-row__id"> {id} </div>
 
-      <div className = {css.title}>
-        {title}
-      </div>
+      <div className = "table-row__table-coll table-row__title"> {title} </div>
 
-      <div className = {css.action}>
-        <ul className = {css.actionUl}>
-            <li className = {css.liEdit}>
-                <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}>
-                    <i></i>
-                </a>
+      <div className = "table-row__table-coll table-row__action">
+        <ul>
+            <li className = "table-row__button-icon table-row__edi">
+                <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></a>
             </li>
-            <li className = {css.liDel}>
-                <a onClick = {()=>{deleteRow({id})}}>
-                    <i></i>
-                </a>
+            <li className = "table-row__button-icon table-row__del">
+                <a onClick = {()=>{deleteRow({id})}}></a>
             </li>
         </ul>
       </div>
-
-      {/* <button
-          onClick={() => {
-            editRow(id)
-          }}>
-          Ре
-        </button>
-        <button
-          onClick={() => {
-            deleteRow({id})
-          }}
-        >
-          Уд
-        </button> */}
-
-        
-      
+ 
     </div>
   )
 }
