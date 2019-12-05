@@ -75,7 +75,11 @@ body {
         &__main {            
             width: 970px;
             height: 100%;
-            padding: 0px 15px;                  
+            padding: 0px 15px;
+            border-collapse: collapse;
+                // :last-child{
+                //     border-bottom: 1px solid #f2f2f2;
+                // }                  
         }
         &__footer {
             display: flex;
