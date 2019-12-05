@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
-import css from './Todo.module.scss'
+import './Todo.scss'
 import Row from '../../components/Row/Row'
 
 function Todo(props) {
@@ -19,21 +19,51 @@ function Todo(props) {
     }
 
     return (
-        <div className={css.wraper}>
-            <div className={css.pageindex}>
-                <div className={css.header}>
-                    <div className={css.h_title}>
+        <div className = "page-index">
+            <div className = "page-index__header">
+                <div className = "page-index__header_title">
+                    <h1>Список задач</h1>
+                </div>
+                <div  className = "page-index__header_bottun">
+                    <button>
+                        <span>Добавить</span>
+                    </button>
+                </div>
+
+            </div>
+            <div className="page-index__main">
+                {
+                    data.map((item, key) => {
+                        return <Row
+                            {...item}
+                            
+                            deleteRow={(id) => {deleteRow(id)}}
+                            
+                            editRow={(id) => {
+                                editRow({ id, text: "Редактирование" })
+                            }}
+                            key={key} />
+                    })
+                }    
+            </div>
+            <div className="page-index__footer">
+                <p>© 2019 АО "Мегаполис"</p>
+            </div>
+
+
+            {/* <div > */}
+            {/* <div className={css.h_title}>
                         <h1>Список задач</h1>
                     </div>
                     <div className={css.h_adding}>
                         <button className = {css.btn_icon}>
                             <span>Добавить</span>
                         </button>
-                    </div>
+                    </div> */}
 
-                </div>
-                <div className={css.main}>
-                {
+            {/* </div> */}
+            {/* <div > */}
+            {/* {
                     data.map((item, key) => {
                         return <Row
                             {...item}
@@ -45,30 +75,13 @@ function Todo(props) {
                             }}
                             key={key} />
                     })
-                }  
-                </div>
-                <div className={css.footer}>
-                    <p>© 2019 АО "Мегаполис"</p>
-                </div>
-                {/* <div className={css.table}>
-                {
-                    data.map((item, key) => {
-                        return <Row
-                            {...item}
-                            className={css.item}
-                            deleteRow={(id) => {
-                                
-                                deleteRow(id)
-                            }}
-                            editRow={(id) => {
-                                editRow({ id, text: "Редактирование" })
-                            }}
-                            key={key} />
-                    })
-                }
-            </div> */}
+                }   */}
+            {/* </div> */}
+            {/* <div > */}
 
-            </div>
+            {/* </div> */}
+
+
         </div>
     )
 }

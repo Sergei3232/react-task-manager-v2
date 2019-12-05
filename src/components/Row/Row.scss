@@ -2,8 +2,9 @@
     display: flex;
     align-items: stretch;
     flex-direction: row;
-    justify-content: space-between; 
- 
+    justify-content: center; 
+    // padding: 15px;
+
     border-top: 1px solid #f2f2f2;
     border-right: 1px solid #f2f2f2;
     border-left: 1px solid #f2f2f2;
@@ -17,16 +18,19 @@
     }
     
     &__id{
-      min-width: 50px;
+      
+      min-width: 20px;
+      max-width: 20px;
       border-right: 1px solid #f2f2f2;
     }
     &__title{
       border-right: 1px solid #f2f2f2; 
       min-width: 740px;
+      max-width: 740px;
     }
     &__action{
       min-width: 88px;
-      
+      max-width: 88px;
       ul{
         display: flex;
         flex-direction: row;
@@ -64,6 +68,7 @@
     &__del{
         border-color: #e61e1e;
         &:hover{
+          color: #ffffff;
           background-color: #e61e1e;  
         }
       }
