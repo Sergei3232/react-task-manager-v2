@@ -1,0 +1,92 @@
+body {
+    display:flex;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+    background-color: #f2f2f2;
+    font-family: "Tahoma";
+    font-size: 14px;
+  }
+
+    .page-index{
+        width: 1000px;
+        height: 100vh;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column ;
+        justify-content: space-between;
+        font: inherit;
+    
+        &__header {
+            min-width: 548px;
+            max-height: 32px;
+            min-height: 32px;
+            padding: 15px;
+            
+            font: inherit; 
+            display: flex;
+            flex-direction: row;
+
+            &_title{
+                width: 80%;
+                min-height: 32px;
+                max-height: 32px;
+                h1{
+                    width: inherit;
+                    height: 32px;
+                    padding: 0px;
+                    margin: 0px;
+                    font: inherit;
+                    font-size: 27.5px;
+                    line-height: 32px;
+                }        
+            }
+            &_bottun{
+
+                width: 20%; 
+                min-height: 32px;
+                max-height: 32px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font: inherit; 
+                button{
+                    min-width: 88px;
+                    min-height: 32px;
+                    border-radius: 4px;
+                    transition: all .1s ease-in-out;
+                    padding: 0 10px;
+                    border: 1px solid #62a60a;
+                    background-color: #fff;
+                    color: #1a1a1a;
+                    line-height: 30px;
+                    display: inline-block;
+                    font: inherit;
+                    &:hover{
+                        background-color: #62a60a;
+                        color: #fff;        
+                    }
+                }                
+            }
+        }    
+        &__main {            
+            width: 970px;
+            height: 100%;
+            padding: 0px 15px;
+            border-collapse: collapse;                  
+        }
+        &__footer {
+            display: flex;
+            align-items: center;
+            font: inherit;
+            padding: 10px 15px 10px 15px;
+            max-width: 970px;
+            height: 22px;
+            background-color: #1a1a1a;
+            color: #fff;
+            p{
+                padding: 0px;
+                margin: 0px;
+            }
+    }
+  }
