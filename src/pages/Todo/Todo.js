@@ -25,7 +25,10 @@ function Todo(props) {
                     <h1>Список задач</h1>
                 </div>
                 <div className="page-index__header_bottun">
-                    <button>
+                    <button onClick = {()=>{
+                        const root = document.getElementsByClassName("root");
+                        root
+                    }}>
                         <span>Добавить</span>
                     </button>
                 </div>
@@ -50,8 +53,8 @@ function Todo(props) {
                 <p>© 2019 АО "Мегаполис"</p>
             </div>
 
-            {/* <div class="popup-index"> */}
-                {/* <div class="popup">
+            {/* <div class="popup-index">
+                <div class="popup">
                     <div class="popup__main">
                         <div class="popup__main_wraper">
                             <button class="popup__main_button">
@@ -73,8 +76,8 @@ function Todo(props) {
                             </div>
                         </div>
                     </div>
-                </div> */}
-            {/* </div> */}
+                </div>
+            </div> */}
 
         </div>
         )
