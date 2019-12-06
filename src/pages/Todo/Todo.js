@@ -19,12 +19,12 @@ function Todo(props) {
     }
 
     return (
-        <div className = "page-index">
-            <div className = "page-index__header">
-                <div className = "page-index__header_title">
+        <div className="page-index">
+            <div className="page-index__header">
+                <div className="page-index__header_title">
                     <h1>Список задач</h1>
                 </div>
-                <div  className = "page-index__header_bottun">
+                <div className="page-index__header_bottun">
                     <button>
                         <span>Добавить</span>
                     </button>
@@ -36,21 +36,48 @@ function Todo(props) {
                     data.map((item, key) => {
                         return <Row
                             {...item}
-                            
-                            deleteRow={(id) => {deleteRow(id)}}
-                            
+
+                            deleteRow={(id) => { deleteRow(id) }}
+
                             editRow={(id) => {
                                 editRow({ id, text: "Редактирование" })
                             }}
                             key={key} />
                     })
-                }    
+                }
             </div>
             <div className="page-index__footer">
                 <p>© 2019 АО "Мегаполис"</p>
             </div>
+
+            {/* <div class="popup-index"> */}
+                {/* <div class="popup">
+                    <div class="popup__main">
+                        <div class="popup__main_wraper">
+                            <button class="popup__main_button">
+                                <i></i>
+                            </button>
+                        </div>
+
+                        <div class="popup__main_grup">
+                            <div class="popup__main_grup1">
+                                <label>Краткое описание</label>
+                                <input type="text" class="popup__main_grup1_input" value=""></input>
+                                <span class="popup__main_grup1_input-notify"></span>
+
+                            </div>
+                            <div class="popup__main_grup2">
+                                <button>
+                                    <span>Создать</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+            {/* </div> */}
+
         </div>
-    )
+        )
 }
 const mapStateToProps = state => ({
     todoData: state.todoData
