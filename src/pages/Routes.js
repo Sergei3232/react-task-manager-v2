@@ -9,7 +9,7 @@ const Routes = () => (
       path='/test/'
     /> */}
     <Route component={Todo}
-      path='*'
+      path='/items'
     />
   </Switch>
 )

@@ -16,7 +16,7 @@ import {
     CREAT_DATA_END,
 
     OPEN_POPUP,
-    CLOSED_POPUP
+    CLOSE_POPUP
 
 } from '../constants/TODO'
 
@@ -114,6 +114,11 @@ const initialState = {
             return {
               ...state,
               popUp: true              
+            } 
+          case CLOSE_POPUP:
+            return {
+              ...state,
+              popUp: false              
             }  
       default:
         return state

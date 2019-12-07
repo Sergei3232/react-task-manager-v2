@@ -8,7 +8,9 @@ import Row from '../../components/Row/Row'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
+    let valueImput = '';
+
+    const { getData, deleteRow, editRow, createRow, openPopUp, closePopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
 
     useEffect(() => {
         getData()
@@ -16,24 +18,32 @@ function Todo(props) {
     
     let windowPopUp = "";
     if(popUp){
-        windowPopUp = (<div class="popup-index">
-        <div class="popup">
-            <div class="popup__main">
-                <div class="popup__main_wraper">
-                    <button class="popup__main_button" >
+        windowPopUp = (<div className="popup-index">
+        <div className="popup">
+            <div className="popup__main">
+            
+                <div className="popup__main_wraper">
+                    <button className="popup__main_button" onClick = {()=>{closePopUp()}}>
                         <i></i>
                     </button>
                 </div>
 
-                <div class="popup__main_grup">
-                    <div class="popup__main_grup1">
+                <div className="popup__main_grup">
+                    <div className="popup__main_grup1">
                         <label>Краткое описание</label>
-                        <input type="text" class="popup__main_grup1_input" value=""></input>
-                        <span class="popup__main_grup1_input-notify"></span>
+                        <input type="text" className="popup__main_grup1_input" onChange={(event)=>{
+                            valueImput = event.target.value
+                            }}>
+                        
+                        </input>
+                        <span className="popup__main_grup1_input-notify"></span>
 
                     </div>
-                    <div class="popup__main_grup2">
-                        <button>
+                    <div className="popup__main_grup2">
+                        <button onClick = {()=>{
+                            createRow({text: valueImput})
+                            closePopUp()
+                            }}>
                             <span>Создать</span>
                         </button>
                     </div>
@@ -42,13 +52,14 @@ function Todo(props) {
         </div>
     </div>);
     }
-    console.log("PopUp", windowPopUp);
+    // console.log("PopUp", windowPopUp);
     if (isEmpty) {
         return <div>пусто</div>
     }
 
     return (
         <div className="page-index">
+        
             <div className="page-index__header">
                 <div className="page-index__header_title">
                     <h1>Список задач</h1>
@@ -74,7 +85,7 @@ function Todo(props) {
                             editRow={(id) => {
                                 editRow({ id, text: "Редактирование" })
                             }}
-                            key={key} />
+                            key={item.id} />
                     })
                 }
             </div>
@@ -94,7 +105,9 @@ const mapDispatchToProps = {
     getData: actionCreators.getData,
     deleteRow: actionCreators.deleteRow,
     editRow: actionCreators.editRow,
-    openPopUp: actionCreators.openPopUp
+    openPopUp: actionCreators.openPopUp,
+    closePopUp: actionCreators.closePopUp,
+    createRow: actionCreators.createRow
 }
 
 export default compose(

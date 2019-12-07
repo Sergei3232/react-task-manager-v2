@@ -57,12 +57,13 @@
         border: 1px solid;
         
         a{ 
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           text-decoration:none;
-           height: 100%;
-           padding: 0px 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-decoration:none;
+          height: 100%;
+          padding: 0px 16.5px 0px 17px;
+
             }
       }
     &__edi{

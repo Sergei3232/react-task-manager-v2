@@ -15,4 +15,4 @@ export const CREAT_DATA_ERROR = 'CREAT_DATA_ERROR'
 export const CREAT_DATA_END   = 'CREAT_DATA_END'
 
 export const OPEN_POPUP = 'OPEN_POPUP_START'
-export const CLOSED_POPUP = 'CLOSED_POPUP'
+export const CLOSE_POPUP = 'CLOSE_POPUP'

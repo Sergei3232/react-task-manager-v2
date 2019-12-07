@@ -17,7 +17,7 @@ import {
     CREAT_DATA_END,
 
     OPEN_POPUP,
-    CLOSED_POPUP
+    CLOSE_POPUP
     
 
 } from '../constants/TODO'
@@ -79,11 +79,7 @@ export const actionCreators = {
         data: { title: payload.text }
         }).then(res => {
         if (res.status === 200) {
-            console.log(res.data);
-          // const arrayTaskState = [...getState().todoData.data];
-          // result = arrayTaskState.push({})
-  
-          console.log('ok editiong');
+            
         } else {
         
         }
@@ -93,13 +89,42 @@ export const actionCreators = {
     },
     createRow: payload => (dispatch, getState) => {
       dispatch({
-        type: 'CREATE_START'
+        type: CREAT_DATA_START 
       })
+      
+      axios({ 
+        method: 'post', 
+        url: API, 
+        data: { title: payload.text} 
+        }).then(res => { 
+        if (res.status === 200) { 
+          console.log(res.data.id);
+          const arrayTaskState = [...getState().todoData.data];
+          arrayTaskState.push({id: res.data.id, title: payload.text});
+
+          dispatch({
+            type: CREAT_DATA_END, payload:arrayTaskState 
+          })   
+        
+        } else { 
+          dispatch({
+            type: CREAT_DATA_ERROR 
+          })
+        } 
+        }) 
+         
     },
+
     openPopUp: payload => (dispatch, getState) => {
       dispatch({
         type: OPEN_POPUP
-      })
-        
+      })   
     },
+
+    closePopUp: payload => (dispatch, getState) => {
+      dispatch({
+        type: CLOSE_POPUP
+      })   
+    },
+      
   }
