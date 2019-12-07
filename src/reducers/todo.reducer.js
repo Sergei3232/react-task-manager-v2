@@ -2,21 +2,29 @@ import {
     GET_DATA_START,
     GET_DATA_ERROR,
     GET_DATA_END,
+
     DELETE_DATA_START,
     DELETE_DATA_ERROR,
     DELETE_DATA_END,
+
     EDIT_DATA_START,
     EDIT_DATA_ERROR,
     EDIT_DATA_END,
+
     CREAT_DATA_START,
     CREAT_DATA_ERROR,
-    CREAT_DATA_END
+    CREAT_DATA_END,
+
+    OPEN_POPUP,
+    CLOSED_POPUP
+
 } from '../constants/TODO'
 
 const initialState = {
     isAjax: false,
     isError: false,
-    data: []
+    data: [],
+    popUp: false
   }
   
   export default (state = initialState, action) => {
@@ -41,8 +49,8 @@ const initialState = {
         }
       case DELETE_DATA_START:
         return {
-          ...state,
-          isAjax: true,
+          ...state
+          // isAjax: true,
         }
       case DELETE_DATA_END:
         return {
@@ -102,7 +110,11 @@ const initialState = {
             isAjax: false
             
           }  
-
+          case OPEN_POPUP:
+            return {
+              ...state,
+              popUp: true              
+            }  
       default:
         return state
     }

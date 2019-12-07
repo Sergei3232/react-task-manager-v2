@@ -8,13 +8,42 @@ import Row from '../../components/Row/Row'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, todoData: { isAjax, isEmpty, data } } = props
+    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
 
     useEffect(() => {
         getData()
     }, [])
+    
+    let windowPopUp = "";
+    if(popUp){
+        windowPopUp = (<div class="popup-index">
+        <div class="popup">
+            <div class="popup__main">
+                <div class="popup__main_wraper">
+                    <button class="popup__main_button" >
+                        <i></i>
+                    </button>
+                </div>
 
-    if (isAjax || isEmpty) {
+                <div class="popup__main_grup">
+                    <div class="popup__main_grup1">
+                        <label>Краткое описание</label>
+                        <input type="text" class="popup__main_grup1_input" value=""></input>
+                        <span class="popup__main_grup1_input-notify"></span>
+
+                    </div>
+                    <div class="popup__main_grup2">
+                        <button>
+                            <span>Создать</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>);
+    }
+    console.log("PopUp", windowPopUp);
+    if (isEmpty) {
         return <div>пусто</div>
     }
 
@@ -26,8 +55,8 @@ function Todo(props) {
                 </div>
                 <div className="page-index__header_bottun">
                     <button onClick = {()=>{
-                        const root = document.getElementsByClassName("root");
-                        root
+                        openPopUp()
+                        
                     }}>
                         <span>Добавить</span>
                     </button>
@@ -52,34 +81,9 @@ function Todo(props) {
             <div className="page-index__footer">
                 <p>© 2019 АО "Мегаполис"</p>
             </div>
+            {windowPopUp}
 
-            {/* <div class="popup-index">
-                <div class="popup">
-                    <div class="popup__main">
-                        <div class="popup__main_wraper">
-                            <button class="popup__main_button">
-                                <i></i>
-                            </button>
-                        </div>
-
-                        <div class="popup__main_grup">
-                            <div class="popup__main_grup1">
-                                <label>Краткое описание</label>
-                                <input type="text" class="popup__main_grup1_input" value=""></input>
-                                <span class="popup__main_grup1_input-notify"></span>
-
-                            </div>
-                            <div class="popup__main_grup2">
-                                <button>
-                                    <span>Создать</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-        </div>
+         </div>
         )
 }
 const mapStateToProps = state => ({
@@ -89,7 +93,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     getData: actionCreators.getData,
     deleteRow: actionCreators.deleteRow,
-    editRow: actionCreators.editRow
+    editRow: actionCreators.editRow,
+    openPopUp: actionCreators.openPopUp
 }
 
 export default compose(
