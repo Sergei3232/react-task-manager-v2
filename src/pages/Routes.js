@@ -5,11 +5,8 @@ import Todo from './Todo/Todo'
 
 const Routes = () => (
   <Switch>
-     {/* <Route component={TodoV}
-      path='/test/'
-    /> */}
-    <Route component={Todo}
-      path='/items'
+    <Route path='/' component={Todo}
+      exact  
     />
   </Switch>
 )

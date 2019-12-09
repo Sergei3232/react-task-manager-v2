@@ -1,6 +1,7 @@
 import React from 'react'
 import './Row.scss'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 function Row (props) {
   const { deleteRow, editRow, id, title} = props
@@ -14,7 +15,8 @@ function Row (props) {
       <div className = "table-row__table-coll table-row__action">
         <ul>
             <li className = "table-row__button-icon table-row__edi">
-                <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></a>
+                <Link to = '/Test' onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></Link>
+                {/* <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></a> */}
             </li>
             <li className = "table-row__button-icon table-row__del">
                 <a onClick = {()=>{deleteRow({id})}}></a>
