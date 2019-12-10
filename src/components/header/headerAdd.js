@@ -1,6 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { actionCreators } from '../../actions/todo.action'
 
 function HeaderAdd(props) {
    

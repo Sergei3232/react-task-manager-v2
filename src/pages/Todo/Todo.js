@@ -4,9 +4,11 @@ import { actionCreators } from '../../actions/todo.action'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import './Todo.scss'
+
 import Row from '../../components/Row/Row'
 import PopUp from '../../components/PopUp/PopUp'
 import HeaderAdd from '../../components/header/headerAdd'
+import Footer from '../../components/footer/footer'
 
 function Todo(props) {
 
@@ -44,9 +46,10 @@ function Todo(props) {
                     })
                 }
             </div>
-            <div className="page-index__footer">
+            <Footer/>
+            {/* <div className="page-index__footer">
                 <p>© 2019 АО "Мегаполис"</p>
-            </div>
+            </div> */}
             {windowPopUp}
 
          </div>
