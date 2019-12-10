@@ -3,28 +3,24 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
 
 function HeaderAdd(props) {
-
-    const { openPopUp } = props
-
+   
+    const { actionButton, titleForm, textButton } = props
+    
     return (<div className="page-index__header">
         <div className="page-index__header_title">
-            <h1>Список задач</h1>
+            <h1>{titleForm}</h1>
         </div>
         <div className="page-index__header_bottun">
             <button onClick={() => {
-                openPopUp()
-
+                actionButton()
             }}>
-                <span>Добавить</span>
+                <span>{textButton}</span>
             </button>
         </div>
 
     </div>)
 }
 
-const mapDispatchToProps = {   
-    openPopUp: actionCreators.openPopUp
-}
+export default HeaderAdd
 
-export default connect(null, mapDispatchToProps)(HeaderAdd)
     

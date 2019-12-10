@@ -10,7 +10,7 @@ import HeaderAdd from '../../components/header/headerAdd'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, todoData: { isAjax, isEmpty, data, popUp} } = props
+    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
 
     useEffect(() => {
         getData()
@@ -27,21 +27,8 @@ function Todo(props) {
 
     return (
         <div className="page-index">
-            <HeaderAdd/>
-            {/* <div className="page-index__header">
-                <div className="page-index__header_title">
-                    <h1>Список задач</h1>
-                </div>
-                <div className="page-index__header_bottun">
-                    <button onClick = {()=>{
-                        openPopUp()
-                        
-                    }}>
-                        <span>Добавить</span>
-                    </button>
-                </div>
-
-            </div> */}
+            <HeaderAdd  actionButton = {openPopUp} titleForm = "Список задач" textButton = "Добавить"/>
+            
             <div className="page-index__main">
                 {
                     data.map((item, key) => {
