@@ -6,10 +6,11 @@ import { compose } from 'redux'
 import './Todo.scss'
 import Row from '../../components/Row/Row'
 import PopUp from '../../components/PopUp/PopUp'
+import HeaderAdd from '../../components/header/headerAdd'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
+    const { getData, deleteRow, editRow, todoData: { isAjax, isEmpty, data, popUp} } = props
 
     useEffect(() => {
         getData()
@@ -26,8 +27,8 @@ function Todo(props) {
 
     return (
         <div className="page-index">
-        
-            <div className="page-index__header">
+            <HeaderAdd/>
+            {/* <div className="page-index__header">
                 <div className="page-index__header_title">
                     <h1>Список задач</h1>
                 </div>
@@ -40,7 +41,7 @@ function Todo(props) {
                     </button>
                 </div>
 
-            </div>
+            </div> */}
             <div className="page-index__main">
                 {
                     data.map((item, key) => {
