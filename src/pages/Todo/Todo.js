@@ -35,14 +35,15 @@ function Todo(props) {
                     <HeaderAdd actionButton={openPopUp} titleForm="Список задач" textButton="Добавить" />
                     <TableRow data={data} deleteRow={deleteRow} deleteRow={editRow} />
                 </Route>
-                <div className="page-index__main">
                 <Route path='/items/:id' render={({match}) => {
                     const { id } = match.params;
-                     
-                     return (<HeaderAdd actionButton={deleteRow} titleForm={`Задача №${id}`} textButton="Удалить" id={id} /> 
-                                 ) 
-                    
+                     return (<HeaderAdd actionButton={(id) => { deleteRow(id) }} titleForm={`Задача №${id}`} textButton="Удалить" id={id} /> )     
                 }} />
+                <div className="page-index__main">
+                
+                <Route path='/items/:id'>
+                    <Footer />    
+                </Route>
                 </div>
                 
 

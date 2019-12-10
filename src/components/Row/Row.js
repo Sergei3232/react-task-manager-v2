@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 function Row (props) {
-  const { deleteRow, editRow, id, title} = props
+  const { deleteRow, id, title} = props
   return (
     <div className="table-row">
       
