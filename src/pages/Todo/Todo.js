@@ -5,10 +5,9 @@ import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import './Todo.scss'
 import Row from '../../components/Row/Row'
+import PopUp from '../../components/PopUp/PopUp'
 
 function Todo(props) {
-
-    let valueImput = '';
 
     const { getData, deleteRow, editRow, createRow, openPopUp, closePopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
 
@@ -18,41 +17,9 @@ function Todo(props) {
     
     let windowPopUp = "";
     if(popUp){
-        windowPopUp = (<div className="popup-index">
-        <div className="popup">
-            <div className="popup__main">
-            
-                <div className="popup__main_wraper">
-                    <button className="popup__main_button" onClick = {()=>{closePopUp()}}>
-                        <i></i>
-                    </button>
-                </div>
-
-                <div className="popup__main_grup">
-                    <div className="popup__main_grup1">
-                        <label>Краткое описание</label>
-                        <input type="text" className="popup__main_grup1_input" onChange={(event)=>{
-                            valueImput = event.target.value
-                            }}>
-                        
-                        </input>
-                        <span className="popup__main_grup1_input-notify"></span>
-
-                    </div>
-                    <div className="popup__main_grup2">
-                        <button onClick = {()=>{
-                            createRow({text: valueImput})
-                            closePopUp()
-                            }}>
-                            <span>Создать</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>);
+        windowPopUp = <PopUp/>    
     }
-    // console.log("PopUp", windowPopUp);
+
     if (isEmpty) {
         return <div>пусто</div>
     }
