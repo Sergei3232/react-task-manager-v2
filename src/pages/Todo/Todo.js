@@ -9,7 +9,7 @@ import PopUp from '../../components/PopUp/PopUp'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, createRow, openPopUp, closePopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
+    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
 
     useEffect(() => {
         getData()
@@ -20,7 +20,7 @@ function Todo(props) {
         windowPopUp = <PopUp/>    
     }
 
-    if (isEmpty) {
+    if (isAjax || isEmpty) {
         return <div>пусто</div>
     }
 

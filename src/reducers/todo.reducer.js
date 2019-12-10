@@ -50,64 +50,59 @@ const initialState = {
       case DELETE_DATA_START:
         return {
           ...state
-          // isAjax: true,
+          
         }
       case DELETE_DATA_END:
         return {
           ...state,
-          isAjax: false,
           data: action.payload
         }
       case DELETE_DATA_ERROR:
         return {
           ...state,
-          isError: true,
-          isAjax: false
+          isError: true
         }
   
       case EDIT_DATA_START:
         return {
           ...state,
-          isError: false,
-          isAjax: true
+          isError: false
+
         }
   
       case EDIT_DATA_END:
         return {
           ...state,
           isError: false,
-          isAjax: false,
           data: action.payload
         }
   
       case EDIT_DATA_ERROR:
         return {
           ...state,
-          isError: true,
-          isAjax: false
+          isError: true
+
           
         }
       
         case CREAT_DATA_START:
           return {
             ...state,
-            isError: false,
-            isAjax: true
+            isError: false
+
           }
     
         case CREAT_DATA_END:
           return {
             ...state,
             isError: false,
-            isAjax: false,
             data: action.payload
           }
     
         case CREAT_DATA_ERROR:
           return {
             ...state,
-            isError: true,
-            isAjax: false
+            isError: true
             
           }  
           case OPEN_POPUP:
