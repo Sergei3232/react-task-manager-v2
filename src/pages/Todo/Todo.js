@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
-import { withRouter } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { compose } from 'redux'
 import './Todo.scss'
 
-import Row from '../../components/Row/Row'
 import PopUp from '../../components/PopUp/PopUp'
 import HeaderAdd from '../../components/header/headerAdd'
+import TableRow from '../../components/tableRow/tableRow'
 import Footer from '../../components/footer/footer'
 
 function Todo(props) {
 
-    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp} } = props
+    const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp } } = props
 
     useEffect(() => {
         getData()
     }, [])
-    
+
     let windowPopUp = "";
-    if(popUp){
-        windowPopUp = <PopUp/>    
+    if (popUp) {
+        windowPopUp = <PopUp />
     }
 
     if (isAjax || isEmpty) {
@@ -29,31 +29,32 @@ function Todo(props) {
 
     return (
         <div className="page-index">
-            <HeaderAdd  actionButton = {openPopUp} titleForm = "Список задач" textButton = "Добавить"/>
-            
-            <div className="page-index__main">
-                {
-                    data.map((item, key) => {
-                        return <Row
-                            {...item}
+            <Switch>
+                
+                <Route path='/' exact >
+                    <HeaderAdd actionButton={openPopUp} titleForm="Список задач" textButton="Добавить" />
+                    <TableRow data={data} deleteRow={deleteRow} deleteRow={editRow} />
+                </Route>
+                <div className="page-index__main">
+                <Route path='/items/:id' render={({match}) => {
+                    const { id } = match.params;
+                     
+                     return (<HeaderAdd actionButton={deleteRow} titleForm={`Задача №${id}`} textButton="Удалить" id={id} /> 
+                                 ) 
+                    
+                }} />
+                </div>
+                
 
-                            deleteRow={(id) => { deleteRow(id) }}
 
-                            editRow={(id) => {
-                                editRow({ id, text: "Редактирование" })
-                            }}
-                            key={item.id} />
-                    })
-                }
-            </div>
-            <Footer/>
-            {/* <div className="page-index__footer">
-                <p>© 2019 АО "Мегаполис"</p>
-            </div> */}
+                
+            </Switch>
+            <Footer />
+
             {windowPopUp}
 
-         </div>
-        )
+        </div>
+    )
 }
 const mapStateToProps = state => ({
     todoData: state.todoData
@@ -68,7 +69,8 @@ const mapDispatchToProps = {
     createRow: actionCreators.createRow
 }
 
-export default compose(
-    withRouter,
-    connect(mapStateToProps, mapDispatchToProps)
-)(Todo)
+// export default compose(
+//     withRouter,
+//     connect(mapStateToProps, mapDispatchToProps)
+// )(Todo)
+export default connect(mapStateToProps, mapDispatchToProps)(Todo)

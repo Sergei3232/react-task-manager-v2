@@ -15,8 +15,7 @@ function Row (props) {
       <div className = "table-row__table-coll table-row__action">
         <ul>
             <li className = "table-row__button-icon table-row__edi">
-                <Link to = '/Test' onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></Link>
-                {/* <a  onClick = {() =>{console.log('Клик совершен Редактирование!!!', {id})}}></a> */}
+                <Link to = {`/items/${id}`} ></Link>
             </li>
             <li className = "table-row__button-icon table-row__del">
                 <a onClick = {()=>{deleteRow({id})}}></a>
