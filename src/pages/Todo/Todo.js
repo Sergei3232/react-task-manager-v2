@@ -2,15 +2,16 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
 import { Switch, Route } from 'react-router-dom'
-import { compose } from 'redux'
+// import { compose } from 'redux'
 import './Todo.scss'
 
 import PopUp from '../../components/PopUp/PopUp'
 import HeaderAdd from '../../components/header/headerAdd'
 import TableRow from '../../components/tableRow/tableRow'
+import EditForm from '../../components/EditMain/EditMain'
 import Footer from '../../components/footer/footer'
 
-function Todo(props) {
+const Todo = (props)=> {
 
     const { getData, deleteRow, editRow, openPopUp, todoData: { isAjax, isEmpty, data, popUp } } = props
 
@@ -37,14 +38,19 @@ function Todo(props) {
                 </Route>
                 <Route path='/items/:id' render={({match}) => {
                     const { id } = match.params;
-                     return (<HeaderAdd actionButton={(id) => { deleteRow(id) }} titleForm={`Задача №${id}`} textButton="Удалить" id={id} /> )     
+                    // const textId = 
+                     return (
+                     <>
+                     <HeaderAdd actionButton={(id) => { deleteRow(id) }} titleForm={`Задача №${id}`} textButton="Удалить" id={id} /> 
+                     <EditForm/>
+                     </>)     
                 }} />
-                <div className="page-index__main">
+                {/* <div className="page-index__main">
                 
                 <Route path='/items/:id'>
-                    <Footer />    
+                    <EditForm/>       
                 </Route>
-                </div>
+                </div> */}
                 
 
 

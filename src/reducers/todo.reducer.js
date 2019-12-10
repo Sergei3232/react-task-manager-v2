@@ -70,20 +70,20 @@ const initialState = {
 
         }
   
-      case EDIT_DATA_END:
-        return {
-          ...state,
-          isError: false,
-          data: action.payload
-        }
+      // case EDIT_DATA_END:
+      //   return {
+      //     ...state,
+      //     isError: false,
+      //     data: action.payload
+      //   }
   
-      case EDIT_DATA_ERROR:
-        return {
-          ...state,
-          isError: true
+      // case EDIT_DATA_ERROR:
+      //   return {
+      //     ...state,
+      //     isError: true
 
           
-        }
+      //   }
       
         case CREAT_DATA_START:
           return {

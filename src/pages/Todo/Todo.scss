@@ -77,6 +77,46 @@ body {
             // border-collapse: collapse; 
             
         }
+        &__form{
+        
+          display: flex;
+          flex-direction: column;
+          
+          font: inherit;
+          width: 970px;
+          height: 120px;
+          &-group{
+            display: flex;
+            flex-direction: column;  
+          }
+          &-input{
+          width: 500px; 
+          height: 32px;
+
+          }
+        }
+        
+        &__form-group-bottun{       
+          margin: 15px 0px 0px;
+        }
+        
+        &__btn-def{
+          width: 150px; 
+          height: 30px;
+          border-radius: 4px;
+          
+          padding: 0 10px;
+          border: 1px solid #f2f2f2;
+          background-color: #fff;
+          color: #1a1a1a;
+          
+          &:hover{
+            border-color: #2058d3;
+            background-color: #2058d3;
+            color: #fff;
+          }        
+        }
+
         &__footer {
             display: flex;
             align-items: center;
