@@ -1,8 +1,8 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 function HeaderAdd(props) {
    
-    const { actionButton, titleForm, textButton, id = '' } = props
+    const { actionButton, titleForm, textButton, id = null } = props
     
     return (
      <div className="page-index__header">
@@ -12,7 +12,10 @@ function HeaderAdd(props) {
         <div className="page-index__header_bottun">
             <button onClick={() => {
                 console.log(id);
-                actionButton({id})    
+                actionButton({id}) 
+                if(id!=null){
+                    BrowserRouter.push("/");
+                }   
             }}>
                 
                 <span>{textButton}</span>
