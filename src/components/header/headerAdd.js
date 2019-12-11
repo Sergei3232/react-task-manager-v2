@@ -1,8 +1,13 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { useHistory } from "react-router-dom"
+
 function HeaderAdd(props) {
    
     const { actionButton, titleForm, textButton, id = null } = props
+    let history = useHistory();
+
+  
     
     return (
      <div className="page-index__header">
@@ -14,7 +19,8 @@ function HeaderAdd(props) {
                 console.log(id);
                 actionButton({id}) 
                 if(id!=null){
-                    BrowserRouter.push("/");
+                    console.log("Клик хистори");
+                    history.push("/");
                 }   
             }}>
                 
