@@ -27,6 +27,7 @@ const Todo = (props) => {
         <div className="page-index">
             <Switch>
                 <Route path='/' exact >
+                    {/* {getData()} */}
                     <HeaderAdd actionButton={openPopUp} titleForm="Список задач" textButton="Добавить" />
                     <TableRow data={data} deleteRow={deleteRow}/>
                 </Route>
@@ -36,7 +37,7 @@ const Todo = (props) => {
                     return (
                         <>
                             <HeaderAdd actionButton={(id) => { deleteRow(id) }} titleForm={`Задача №${id}`} textButton="Удалить" id={id} />
-                            <EditForm valueTask={valueTask.title} />
+                            <EditForm valueTask={valueTask.title} id={id}/>
                         </>)
                 }} />
             </Switch>

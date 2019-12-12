@@ -1,14 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from '../../actions/todo.action'
 
 const EditForm = (props) => {
     
-    const { editButtonOpen, editButtonClose, valueTask, todoData: { buttonEdit } } = props 
+    const { editButtonOpen, editButtonClose, editRow, valueTask, todoData: { buttonEdit }, id } = props 
     let newValueTask = valueTask;
-    
-    const LinkText = buttonEdit?(<button to='/' className='page-index__btn-def'>
+    let history = useHistory();
+    const LinkText = buttonEdit?(<button to='/' 
+                                    className='page-index__btn-def' 
+                                    onClick = {()=>{
+                                        editRow({id: id, text: newValueTask})
+                                        history.push("/")
+                                    }                                        
+                                    }>
                                     <span className="page-index__btn-def-name">Сохранить</span>
                                 </button>):
                             (<Link to='/' className='page-index__btn-def'>
@@ -26,11 +32,11 @@ const EditForm = (props) => {
                         defaultValue={newValueTask} 
                         onChange ={(event)=>{
                             newValueTask = event.target.value
-                            if(newValueTask===valueTask){
+                            
+                            if(newValueTask===valueTask && buttonEdit){
                                 editButtonClose()
-                            }else{
-                                editButtonOpen()    
-                            }}}/>                     
+                            }else if (!buttonEdit){editButtonOpen()}                                    
+                            }}/>                     
                     <span className="page-index__form-notify"></span>
                 </div>
                 <div className="page-index__form-group-button">
@@ -49,7 +55,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     editButtonOpen: actionCreators.editButtonOpen,
-    editButtonClose: actionCreators.editButtonClose
+    editButtonClose: actionCreators.editButtonClose,
+    editRow: actionCreators.editRow 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditForm)

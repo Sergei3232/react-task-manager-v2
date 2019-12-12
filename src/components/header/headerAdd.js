@@ -13,10 +13,8 @@ function HeaderAdd(props) {
         </div>
         <div className="page-index__header_bottun">
             <button onClick={() => {
-                console.log(id);
                 actionButton({id}) 
                 if(id!=null){
-                    console.log("Клик хистори");
                     history.push("/");
                 }   
             }}>
