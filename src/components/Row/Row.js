@@ -1,6 +1,5 @@
 import React from 'react'
 import './Row.scss'
-import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
 function Row (props) {
@@ -25,14 +24,6 @@ function Row (props) {
  
     </div>
   )
-}
-
-Row.propTypes = {
-  deleteRow: PropTypes.func,
-  editRow: PropTypes.func,
-  id: PropTypes.number,
-  title: PropTypes.string,
-  className: PropTypes.string
 }
 
 export default Row

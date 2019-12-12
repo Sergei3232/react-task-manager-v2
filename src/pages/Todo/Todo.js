@@ -28,7 +28,7 @@ const Todo = (props) => {
             <Switch>
                 <Route path='/' exact >
                     <HeaderAdd actionButton={openPopUp} titleForm="Список задач" textButton="Добавить" />
-                    <TableRow data={data} deleteRow={deleteRow} deleteRow={editRow} />
+                    <TableRow data={data} deleteRow={deleteRow}/>
                 </Route>
                 <Route path='/items/:id' render={({ match }) => {
                     const { id } = match.params;
@@ -60,8 +60,4 @@ const mapDispatchToProps = {
     createRow: actionCreators.createRow
 }
 
-// export default compose(
-//     withRouter,
-//     connect(mapStateToProps, mapDispatchToProps)
-// )(Todo)
 export default connect(mapStateToProps, mapDispatchToProps)(Todo)

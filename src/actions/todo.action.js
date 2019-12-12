@@ -9,7 +9,7 @@ import {
     DELETE_DATA_END,
 
     EDIT_DATA_START,
-    // EDIT_DATA_ERROR,
+    EDIT_DATA_ERROR,
     // EDIT_DATA_END,
 
     CREAT_DATA_START,
@@ -17,9 +17,12 @@ import {
     CREAT_DATA_END,
 
     OPEN_POPUP,
-    CLOSE_POPUP
-    
+    CLOSE_POPUP,
 
+    EDIT_BUTTON_OPEN,
+    EDIT_BUTTON_CLOSE
+    
+    
 } from '../constants/TODO'
 
 const API = 'https://test.megapolis-it.ru/api/list'
@@ -56,7 +59,7 @@ export const actionCreators = {
         if (res.status === 200) {
           const arrayTaskState = [...getState().todoData.data];
           result = arrayTaskState.filter(item => item.id !== payload.id);
-  
+          console.log("Ответ сервера: ", result);
           dispatch({
             type: DELETE_DATA_END, payload:result
           })
@@ -79,9 +82,11 @@ export const actionCreators = {
         data: { title: payload.text }
         }).then(res => {
         if (res.status === 200) {
-            
+          console.log(res.data);    
         } else {
-        
+          dispatch({
+            type: EDIT_DATA_ERROR
+          })
         }
         })
   
@@ -126,5 +131,18 @@ export const actionCreators = {
         type: CLOSE_POPUP
       })   
     },
+
+    editButtonOpen: payload => (dispatch, getState) => {
+      dispatch({
+        type: EDIT_BUTTON_OPEN   
+      })   
+    },
+
+    editButtonClose: payload => (dispatch, getState) => {
+      dispatch({
+        type: EDIT_BUTTON_CLOSE
+      })   
+    }
+
       
   }

@@ -16,3 +16,6 @@ export const CREAT_DATA_END   = 'CREAT_DATA_END'
 
 export const OPEN_POPUP = 'OPEN_POPUP_START'
 export const CLOSE_POPUP = 'CLOSE_POPUP'
+
+export const EDIT_BUTTON_OPEN  = 'EDIT_BUTTON_OPEN'
+export const EDIT_BUTTON_CLOSE = 'EDIT_BUTTON_CLOSE' 
