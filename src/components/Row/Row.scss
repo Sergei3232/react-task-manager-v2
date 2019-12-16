@@ -70,13 +70,39 @@
         border-color: #62a60a;
         &:hover{
           color: #ffffff;
-          background-color: #62a60a;}}
+          background-color: #62a60a;
+          svg{
+            fill: #ffffff;  
+          }
+        
+        }}
+
+        svg{
+          width:  12px;
+          height: 12px;
+          fill: #62a60a;
+          &:hover{
+            fill: #ffffff;  
+          }
+        }  
     &__del{
         border-color: #e61e1e;
         &:hover{
           color: #ffffff;
-          background-color: #e61e1e;  
+          background-color: #e61e1e; 
+          svg{
+            fill: #ffffff;  
+          } 
         }
+        svg{
+          width:  12px;
+          height: 12px;
+          fill: #e61e1e;
+          &:hover{
+            fill: #ffffff;  
+          }
+        }  
+
       }
 
   }

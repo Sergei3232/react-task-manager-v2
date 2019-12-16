@@ -42,16 +42,17 @@ body {
                 }        
             }
             &_bottun{
-
+                
                 width: 20%; 
                 min-height: 32px;
                 max-height: 32px;
                 display: flex;
+                // flex-direction: row;
                 justify-content: flex-end;
                 align-items: center;
                 font: inherit; 
                 button{
-                    min-width: 88px;
+                    min-width: 91px;
                     min-height: 32px;
                     border-radius: 4px;
                     transition: all .1s ease-in-out;
@@ -64,9 +65,21 @@ body {
                     font: inherit;
                     &:hover{
                         background-color: #62a60a;
-                        color: #fff;        
+                        color: #fff;
+                        svg{
+                          fill: #fff;
+                        }        
                     }
-                }                
+                    svg{
+                      width: 12px;
+                      height: 12px;  
+                    }
+                }  
+                &-icon{
+                  display: flex;
+                  justify-content: space-between;  
+                  align-items: center;
+                }              
             }
         }    
         &__main {            
@@ -74,7 +87,6 @@ body {
             height: 100%;
             padding: 0px 15px;
             overflow: auto;
-            // border-collapse: collapse; 
             
         }
         &__form{
